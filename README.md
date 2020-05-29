@@ -3,7 +3,7 @@ Stack Block
 
 ## list
 - day 001
-  - 
+  - What is the...
 - day 002
   - 
 - day 003
