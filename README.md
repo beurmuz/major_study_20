@@ -1,11 +1,17 @@
 # blockchain programing
 ---
-### applied technique
+### site
  1. smu405 <https://github.com/smu405/e>
  2. remix <http://remix.ethereum.org/>
  3. chat <https://gitter.im/smu405e/community>
  4. UML <https://www.planttext.com/>
-
+---
+### utilization technique
+- ethereum
+- jupyter notebook
+- remix
+- python 
+---
 ### reference
  - [reference_1] (https://d2fault.github.io/2018/03/19/20180319-about-solidity-2/)
  - [reference_2] (https://web3js.readthedocs.io/en/v1.2.6/web3-eth.html#getbalance)
