@@ -1,0 +1,10 @@
+var Web3=require('web3');
+var web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8345"));
+var abi =[{"inputs":[],"name":"add","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"getCounter","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"subtract","outputs":[],"stateMutability":"nonpayable","type":"function"}];
+var addr = "0x646234A588B658B76694F34912A9FeA72bb1c993";
+var counter = new web3.eth.Contract(abi,addr);
+counter.methods.getCounter().call().then(function(str) {console.log(str);});
+//counter.methods.subtract().send({from:"0x8779B1C2bfB317618912174516FE9f65b209B952",gas:100000});
+counter.methods.add().send({from:"0x8779B1C2bfB317618912174516FE9f65b209B952",gas:100000});
+//counter.methods.add().send({from:"0x8779B1C2bfB317618912174516FE9f65b209B952",gas:100000});
+//counter.methods.getCounter().call().then(function(str) {console.log(str);});

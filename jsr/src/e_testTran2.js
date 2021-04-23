@@ -1,0 +1,10 @@
+var hqaccount="0x519775cc61e4c9b3f19b75426a7a3696a3c85035";
+console.log('hq account balance: ', eth.getBalance(hqaccount));
+console.log('block number: ', eth.blockNumber);
+var t=eth.sendTransaction({from:eth.accounts[0], to:hqaccount, value:10000});
+console.log('transactionHash: ',t);
+console.log('...mining start');
+miner.start(1);admin.sleepBlocks(1);miner.stop();
+console.log('mining done...');
+console.log('block number: ', eth.blockNumber);
+console.log('hq account balance: ', eth.getBalance(hqaccount));

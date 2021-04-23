@@ -1,0 +1,26 @@
+<!doctype>
+<html>
+<head>
+<script src="https://cdn.jsdelivr.net/npm/web3@0.20.5/dist/web3.min.js"></script>
+<script type="text/javascript">
+    //var Web3 = require('web3');  //can be removed
+    var web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8446"));
+
+    function displaypowerOf2() {
+        //web3@0.20.x
+        var powerContract = web3.eth.contract([{"constant":true,"inputs":[{"name":"input","type":"uint256"}],"name":"powerOf2","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"pure","type":"function"}]);
+        var power = powerContract.at("0x6cd754b863dEB372E4205dDFCeAfCAF154f1f090");
+        var power = power.powerOf2(32);
+        document.getElementById('result').innerText = "The message from blockchain: " + power;
+        document.getElementById('web3coinbase').innerText = 'coinbase: ' + web3.eth.coinbase;
+    }
+</script>
+</head>
+<body>
+    <h1>Math.powerOf2</h1>
+    <button type="button" onClick="displaypowerOf2();">Display PowerOf2</button>
+    <div></div>
+    <div id="result"></div>
+    <div id="web3coinbase"></div>
+</body>
+</html>

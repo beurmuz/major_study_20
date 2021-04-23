@@ -1,0 +1,36 @@
+<!doctype>
+<html>
+<head>
+<script src="https://cdn.jsdelivr.net/npm/web3@0.20.5/dist/web3.min.js"></script>
+<script type="text/javascript">
+    //var Web3 = require('web3');  //can be removed
+    var web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8445"));
+
+    function displayHello() {
+        //web3@0.20.x
+        var shelloContract = web3.eth.contract([{"constant":true,"inputs":[],"name":"sayHello","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"pure","type":"function"}]);
+        var hello = shelloContract.at("0x0A80591F50a893Bd605D648a08780E72FBbc94cD");
+        var hello=hello.sayHello.call();
+        document.getElementById('sayhello').innerText = "The message from blockchain: " + hello;
+        document.getElementById('web3ver').innerText = 'web3 version 0.20.x';
+        document.getElementById('web3coinbase').innerText = 'coinbase: ' + web3.eth.coinbase;
+
+        //web3@1.2.x - can not instanciate a contract
+        //alert("1.2.5");
+        //var shelloContract = new web3.eth.Contract([{"constant":true,"inputs":[],"name":"sayHello","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"pure","type":"function"}],"0x28a63917122075B10BB89475CC0d519E041BE3FB");
+        //shelloContract.methods.sayHello().call().then(function(str) {
+        //    alert(str);  //test
+        //    document.getElementById('sayhello').innerText = "The message from blockchain: " + str;
+        //});
+    }
+</script>
+</head>
+<body>
+    <h1>Hello</h1>
+    <button type="button" onClick="displayHello();">Display Hello</button>
+    <div></div>
+    <div id="sayhello"></div>
+    <div id="web3ver"></div>
+    <div id="web3coinbase"></div>
+</body>
+</html>
